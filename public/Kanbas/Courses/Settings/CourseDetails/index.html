@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Course Settings</title>
+  </head>
+  <body>
+    <nav>
+      <ul
+        style="list-style-type: none; margin: 0; padding: 0; overflow: hidden"
+      >
+        <li
+          style="
+            float: left;
+            display: block;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+          "
+        >
+          <a href="/Kanbas/Courses/Settings/CourseDetails/screen.html"
+            >Course Details</a
+          >
+        </li>
+        <li
+          style="
+            float: left;
+            display: block;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+          "
+        >
+          <a href="#sections">Sections</a>
+        </li>
+        <li
+          style="
+            float: left;
+            display: block;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+          "
+        >
+          <a href="/Kanbas/Courses/Settings/Navigation/screen.html"
+            >Navigation</a
+          >
+        </li>
+        <li
+          style="
+            float: left;
+            display: block;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+          "
+        >
+          <a href="#apps">Apps</a>
+        </li>
+        <li
+          style="
+            float: left;
+            display: block;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+          "
+        >
+          <a href="#feature-options">Feature Options</a>
+        </li>
+        <li
+          style="
+            float: left;
+            display: block;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+          "
+        >
+          <a href="#integrations">Integrations</a>
+        </li>
+      </ul>
+    </nav>
+
+    <h1>Course Details</h1>
+
+    <form>
+      <label for="image-input">Image:</label>
+      <input type="file" id="image-input" />
+
+      <p>Name: CS4550 12631 Web Development SEC 01 Fall 2023 [BOS-1-TR]</p>
+      <p>Course Code: CS4550.12631.202410</p>
+      <p>Blueprint Course: No</p>
+
+      <label for="course-template">
+        <input type="checkbox" id="course-template" name="course-template" />
+        Enable course as a Course Template
+      </label>
+      <br />
+      <br />
+
+      <label for="time-zone">Time Zone:</label>
+      <select id="time-zone">
+        <option value="Eastern">
+          Eastern Time (US & Canada) (-05:00/-04:00)
+        </option>
+        <!-- Populate other time zones here -->
+      </select>
+
+      <p>SIS ID: CS4550.12631.202410</p>
+      <p>Subaccount: <a href="#">CS Undergrad</a></p>
+
+      <p>Term: 202410_1 Fall 2023 Semester Full Term</p>
+
+      <label for="participation">Participation:</label>
+      <select id="participation">
+        <option>Term</option>
+        <!-- Additional participation options -->
+      </select>
+      <p>Course participation is limited to term start and end dates</p>
+
+      <h3>Start</h3>
+      <input type="date" />
+
+      <h3>End</h3>
+      <input type="date" />
+      <br />
+      <br />
+
+      <label>
+        <input type="checkbox" name="restrict_before_start" />
+        Restrict students from viewing course before term start date </label
+      ><br /><br />
+
+      <label>
+        <input type="checkbox" name="restrict_after_end" />
+        Restrict students from viewing course after term end date </label
+      ><br /><br />
+
+      <label for="default-due-time">Default due time:</label>
+
+      <select id="default-due-time" name="default_due_time">
+        <option value="11:59pm">Account default (11:59pm)</option>
+        <!-- More options here -->
+      </select>
+      <p>
+        This influences the user interface for setting due dates. It does not
+        change the time due for any existing assignments.
+      </p>
+
+      <label for="language">Language:</label>
+      <select id="language" name="language">
+        <option value="english_unit">
+          Not set (user-configurable, defaults to English (Unit))
+        </option>
+        <!-- More options here -->
+      </select>
+      <p>
+        This will override any user/system language preferences. This is only
+        recommended for foreign language courses
+      </p>
+
+      <label>File Storage:</label>
+      <span>10000 megabytes</span><br /><br />
+
+      <span>Large Course:</span>
+      <label>
+        <input type="checkbox" name="large_course" />
+        Launch SpeedGrader Filtered by Student Group
+      </label>
+      <br /><br />
+
+      <span>Grading Scheme:</span>
+      <label>
+        <input type="checkbox" name="grading_scheme" />
+        Enable course grading scheme </label
+      ><br /><br />
+
+      <label for="license">License:</label>
+      <select id="license" name="license">
+        <option value="private">Private (Copyrighted)</option>
+        <!-- More options here --></select
+      ><br /><br />
+
+      <span>File Copyright:</span>
+      <label>
+        <input type="checkbox" name="file_copyright" />
+        Copyright and license information must be provided for files before they
+        are published. </label
+      ><br /><br />
+
+      <label for="visibility"
+        >Visibility: If you need to make your course public please contact your
+        administrator/support.</label
+      >
+      <p>
+        <select id="visibility" name="visibility">
+          <option value="course">Course</option>
+          <!-- More options here -->
+        </select>
+        <br />
+        <label>
+          <input type="checkbox" name="public_course_index" />
+          Include this course in the public course index
+        </label>
+      </p>
+
+      <label for="format">Format:</label>
+      <select id="format" name="format">
+        <option value="on-campus">On-Campus</option>
+        <!-- More options here --></select
+      ><br /><br />
+
+      <span>Mastery Paths:</span>
+      <label>
+        <input type="checkbox" name="mastery_paths" />
+        Enable individual learning paths for students based on assessment </label
+      ><br /><br />
+
+      <label for="description">Description:</label>
+      <textarea id="description" name="description"></textarea><br /><br />
+
+      <button type="button">more options</button>
+
+      <hr />
+
+      <button type="submit">Update Course Details</button>
+    </form>
+  </body>
+</html>
