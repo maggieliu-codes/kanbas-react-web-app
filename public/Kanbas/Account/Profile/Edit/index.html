@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Edit Profile</title>
+  </head>
+  <body>
+    <h1>Jose Annunziato</h1>
+
+    <form action="/Profile/screen.html" method="post">
+      <label for="name">Name:*</label>
+      <input type="text" id="name" value="Jose Annunziato" required />
+
+      <label for="pronouns">Pronouns:</label>
+      <select id="pronouns">
+        <option>None</option>
+        <!-- Additional pronoun options -->
+      </select>
+      <br />
+      <br />
+
+      <label for="title">Title:</label>
+      <input type="text" id="title" />
+
+      <h3>Contact</h3>
+      <p>
+        No registered services, you can add some on the
+        <a href="/settings">settings page</a>.
+      </p>
+
+      <h3>Biography</h3>
+      <p>Faculty, Software Engineer, AI, Space, and renewables enthusiast.</p>
+      <textarea rows="4" cols="45">
+Faculty, Software Engineer, AI, Space, and renewables enthusiast.</textarea
+      >
+
+      <h3>Links</h3>
+      <ul>
+        <li>
+          <a href="https://www.youtube.com" target="_blank"> YouTube </a>
+          <span style="color: blue">Links to an external site.</span>
+        </li>
+      </ul>
+
+      <table>
+        <tr>
+          <td align="center" valign="middle"><h3>Title</h3></td>
+          <td></td>
+          <td align="center" valign="middle"><h3>URL</h3></td>
+        </tr>
+        <tr>
+          <td><input type="text" value="YouTube" /></td>
+          <td>--></td>
+          <td>
+            <input type="text" value="https://www.youtube.com" />
+            <a href="#" target="_blank"> Remove </a>
+          </td>
+        </tr>
+        <!-- Additional links can be added here -->
+      </table>
+
+      <button
+        type="button"
+        onclick="window.location.href='/Profile/screen.html';"
+      >
+        Add another link
+      </button>
+
+      <div>
+        <button
+          type="button"
+          onclick="window.location.href='/Kanbas/Account/Profile/screen.html';"
+        >
+          Cancel
+        </button>
+        <button
+          type="button"
+          onclick="window.location.href='/Kanbas/Account/Profile/screen.html';"
+        >
+          Save Profile
+        </button>
+      </div>
+    </form>
+
+    <div>
+      <button
+        type="button"
+        onclick="window.location.href='/Kanbas/Account/Profile/Edit/screen.html';"
+      >
+        Edit Profile
+      </button>
+      <button
+        type="button"
+        onclick="window.location.href='/Kanbas/Account/Profile/screen.html';"
+      >
+        Cancel Editting
+      </button>
+    </div>
+  </body>
+</html>

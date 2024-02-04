@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kanbas Grades Screen</title>
+  </head>
+  <body>
+    <table width="100%">
+      <tr>
+        <!-- Kanbas Navigation -->
+        <td width="10%" valign="top">
+          <ul>
+            <li><a href="/Kanbas/Account/Profile/screen.html">Account</a></li>
+            <li><a href="/Kanbas/Dashboard/screen.html">Dashboard</a></li>
+            <li><a href="/Kanbas/Courses/Home/screen.html">Courses</a></li>
+            <li><a href="/Kanbas/Calendar/index.html">Calendar</a></li>
+            <li><a href="/Kanbas/Inbox/index.html">Inbox</a></li>
+            <li><a href="/Kanbas/History/index.html">History</a></li>
+            <li><a href="/Kanbas/Studio/index.html">Studio</a></li>
+            <li><a href="/Kanbas/Commons/index.html">Commons</a></li>
+            <li><a href="/Kanbas/Help/index.html">Help</a></li>
+          </ul>
+        </td>
+
+        <!-- Course Navigation -->
+        <td width="10%" valign="top">
+          <ul>
+            <li><a href="/Kanbas/Courses/Home/screen.html">Home</a></li>
+            <li><a href="/Kanbas/Courses/Modules/screen.html">Modules</a></li>
+            <li><a href="/Kanbas/Courses/Piazza/index.html">Piazza</a></li>
+            <li>
+              <a href="/Kanbas/Courses/ZoomMeetings/index.html"
+                >Zoom Meetings</a
+              >
+            </li>
+            <li>
+              <a href="/Kanbas/Courses/Assignments/screen.html">Assignments</a>
+            </li>
+            <li><a href="/Kanbas/Courses/Quizzes/index.html">Quizzes</a></li>
+            <li><a href="/Kanbas/Courses/Grades/screen.html">Grades</a></li>
+            <li><a href="/Kanbas/Courses/People/index.html">People</a></li>
+            <li>
+              <a href="/Kanbas/Courses/PanoptoVideo/index.html"
+                >Panopto Video</a
+              >
+            </li>
+            <li>
+              <a href="/Kanbas/Courses/Discussions/index.html">Discussions</a>
+            </li>
+            <li>
+              <a href="/Kanbas/Courses/Announcements/index.html"
+                >Announcements</a
+              >
+            </li>
+            <li><a href="/Kanbas/Courses/Pages/index.html">Pages</a></li>
+            <li><a href="/Kanbas/Courses/Files/index.html">Files</a></li>
+            <li><a href="/Kanbas/Courses/Rubrics/index.html">Rubrics</a></li>
+            <li><a href="/Kanbas/Courses/Outcomes/index.html">Outcomes</a></li>
+            <li>
+              <a href="/Kanbas/Courses/Collaborations/index.html"
+                >Collaborations</a
+              >
+            </li>
+            <li><a href="/Kanbas/Courses/Syllabus/index.html">Syllabus</a></li>
+            <li>
+              <a href="/Kanbas/Courses/Settings/CourseDetails/screen.html"
+                >Settings</a
+              >
+            </li>
+          </ul>
+        </td>
+
+        <!-- Grades -->
+        <td width="80%" valign="top">
+          <!-- Controls for the gradebook -->
+          <div>
+            <select id="gradebook-dropdown" name="gradebook">
+              <option value="Gradebook">Gradebook</option>
+            </select>
+            <button type="button">Import</button>
+            <select name="export">
+              <option value="Export">Export</option>
+            </select>
+            <button type="button">Configure</button>
+          </div>
+
+          <!-- Search Fields for Student and Assignment Names -->
+          <div>
+            <h3>Student Names</h3>
+            <input
+              type="search"
+              id="search-students"
+              placeholder="Search Students"
+            />
+
+            <h3>Assignment Names</h3>
+            <input
+              type="search"
+              id="search-assignments"
+              placeholder="Search Assignments"
+            />
+            <br />
+            <br />
+            <div>
+              <button type="button">Apply Filters</button>
+            </div>
+          </div>
+
+          <br />
+          <br />
+
+          <!-- The Grades Table -->
+          <!-- The Grades Table -->
+          <table border="1" cellspacing="5" cellpadding="5">
+            <thead>
+              <tr>
+                <th>Student Name</th>
+                <th>A1 SETUP<br />Out of 100</th>
+                <th>A2 HTML<br />Out of 100</th>
+                <th>A3 CSS<br />Out of 100</th>
+                <th>A4 BOOTSTRAP<br />Out of 100</th>
+                <th>A5 JAVASCRIPT<br />Out of 100</th>
+                <th>A6 REACT<br />Out of 100</th>
+                <th>A7 REDUX<br />Out of 100</th>
+                <th>A8 NODE<br />Out of 100</th>
+                <th>A9 MONGO<br />Out of 100</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>Alice Wonderland</td>
+                <td align="center" valign="middle">98</td>
+                <td align="center" valign="middle">89</td>
+
+                <td align="center" valign="middle">87</td>
+
+                <td align="center" valign="middle">90</td>
+
+                <td align="center" valign="middle">89</td>
+
+                <td align="center" valign="middle">94</td>
+
+                <td align="center" valign="middle">88</td>
+
+                <td align="center" valign="middle">87</td>
+
+                <td align="center" valign="middle">100</td>
+              </tr>
+              <tr>
+                <td>Princes Leia</td>
+                <td align="center" valign="middle">99</td>
+
+                <td align="center" valign="middle">80</td>
+
+                <td align="center" valign="middle">87</td>
+
+                <td align="center" valign="middle">86</td>
+
+                <td align="center" valign="middle">100</td>
+
+                <td align="center" valign="middle">94</td>
+                <td align="center" valign="middle">
+                  <input
+                    type="text"
+                    value="85"
+                    size="3"
+                    style="text-align: center"
+                  />
+                </td>
+                <td align="center" valign="middle">84</td>
+                <td align="center" valign="middle">92</td>
+              </tr>
+              <tr>
+                <td>Luke Skywalker</td>
+                <td align="center" valign="middle">
+                  <input
+                    type="text"
+                    value="99"
+                    size="3"
+                    style="text-align: center"
+                  />
+                </td>
+                <td align="center" valign="middle">88</td>
+
+                <td align="center" valign="middle">97</td>
+
+                <td align="center" valign="middle">82</td>
+
+                <td align="center" valign="middle">96</td>
+
+                <td align="center" valign="middle">93</td>
+
+                <td align="center" valign="middle">95</td>
+
+                <td align="center" valign="middle">100</td>
+
+                <td align="center" valign="middle">93</td>
+              </tr>
+              <tr>
+                <td>Han solo</td>
+                <td align="center" valign="middle">83</td>
+                <td align="center" valign="middle">99</td>
+
+                <td align="center" valign="middle">94</td>
+
+                <td align="center" valign="middle">98</td>
+
+                <td align="center" valign="middle">86</td>
+
+                <td align="center" valign="middle">85</td>
+
+                <td align="center" valign="middle">
+                  <input
+                    type="text"
+                    value="86"
+                    size="3"
+                    style="text-align: center"
+                  />
+                </td>
+
+                <td align="center" valign="middle">80</td>
+
+                <td align="center" valign="middle">84</td>
+              </tr>
+              <tr>
+                <td>Lando Calresian</td>
+                <td align="center" valign="middle">83</td>
+                <td align="center" valign="middle">
+                  <input
+                    type="text"
+                    value="92"
+                    size="3"
+                    style="text-align: center"
+                  />
+                </td>
+
+                <td align="center" valign="middle">80</td>
+
+                <td align="center" valign="middle">80</td>
+
+                <td align="center" valign="middle">92</td>
+
+                <td align="center" valign="middle">92</td>
+
+                <td align="center" valign="middle">94</td>
+
+                <td align="center" valign="middle">87</td>
+
+                <td align="center" valign="middle">95</td>
+              </tr>
+              <tr>
+                <td>Boba Fet</td>
+                <td align="center" valign="middle">85</td>
+                <td align="center" valign="middle">89</td>
+
+                <td align="center" valign="middle">94</td>
+
+                <td align="center" valign="middle">83</td>
+
+                <td align="center" valign="middle">83</td>
+
+                <td align="center" valign="middle">84</td>
+
+                <td align="center" valign="middle">91</td>
+
+                <td align="center" valign="middle">87</td>
+
+                <td align="center" valign="middle">96</td>
+              </tr>
+              <tr>
+                <td>Darth Vader</td>
+                <td align="center" valign="middle">81</td>
+                <td align="center" valign="middle">81</td>
+
+                <td align="center" valign="middle">
+                  <input
+                    type="text"
+                    value="96"
+                    size="3"
+                    style="text-align: center"
+                  />
+                </td>
+
+                <td align="center" valign="middle">80</td>
+
+                <td align="center" valign="middle">89</td>
+
+                <td align="center" valign="middle">88</td>
+
+                <td align="center" valign="middle">82</td>
+
+                <td align="center" valign="middle">80</td>
+
+                <td align="center" valign="middle">82</td>
+              </tr>
+              <tr>
+                <td>Obi-Wan Kenobi</td>
+                <td align="center" valign="middle">
+                  <input
+                    type="text"
+                    value="85"
+                    size="3"
+                    style="text-align: center"
+                  />
+                </td>
+                <td align="center" valign="middle">99</td>
+
+                <td align="center" valign="middle">87</td>
+
+                <td align="center" valign="middle">82</td>
+
+                <td align="center" valign="middle">88</td>
+
+                <td align="center" valign="middle">83</td>
+
+                <td align="center" valign="middle">88</td>
+
+                <td align="center" valign="middle">92</td>
+
+                <td align="center" valign="middle">80</td>
+              </tr>
+              <tr>
+                <td>R2-D2</td>
+                <td align="center" valign="middle">81</td>
+                <td align="center" valign="middle">
+                  <input
+                    type="text"
+                    value="92"
+                    size="3"
+                    style="text-align: center"
+                  />
+                </td>
+
+                <td align="center" valign="middle">
+                  <input
+                    type="text"
+                    value="82"
+                    size="3"
+                    style="text-align: center"
+                  />
+                </td>
+
+                <td align="center" valign="middle">86</td>
+
+                <td align="center" valign="middle">83</td>
+
+                <td align="center" valign="middle">
+                  <input
+                    type="text"
+                    value="84"
+                    size="3"
+                    style="text-align: center"
+                  />
+                </td>
+
+                <td align="center" valign="middle">98</td>
+
+                <td align="center" valign="middle">85</td>
+
+                <td align="center" valign="middle">96</td>
+              </tr>
+              <tr>
+                <td>C-3PO</td>
+                <td align="center" valign="middle">94</td>
+                <td align="center" valign="middle">98</td>
+
+                <td align="center" valign="middle">83</td>
+
+                <td align="center" valign="middle">83</td>
+
+                <td align="center" valign="middle">100</td>
+
+                <td align="center" valign="middle">96</td>
+
+                <td align="center" valign="middle">96</td>
+
+                <td align="center" valign="middle">85</td>
+
+                <td align="center" valign="middle">87</td>
+              </tr>
+              <tr>
+                <td>Yoda</td>
+                <td align="center" valign="middle">80</td>
+                <td align="center" valign="middle">89</td>
+
+                <td align="center" valign="middle">99</td>
+
+                <td align="center" valign="middle">89</td>
+
+                <td align="center" valign="middle">86</td>
+
+                <td align="center" valign="middle">85</td>
+
+                <td align="center" valign="middle">96</td>
+
+                <td align="center" valign="middle">92</td>
+
+                <td align="center" valign="middle">85</td>
+              </tr>
+              <tr>
+                <td>Admiral Ackbar</td>
+                <td align="center" valign="middle">82</td>
+                <td align="center" valign="middle">88</td>
+
+                <td align="center" valign="middle">95</td>
+
+                <td align="center" valign="middle">100</td>
+
+                <td align="center" valign="middle">
+                  <input
+                    type="text"
+                    value="93"
+                    size="3"
+                    style="text-align: center"
+                  />
+                </td>
+
+                <td align="center" valign="middle">98</td>
+
+                <td align="center" valign="middle">85</td>
+
+                <td align="center" valign="middle">87</td>
+
+                <td align="center" valign="middle">99</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

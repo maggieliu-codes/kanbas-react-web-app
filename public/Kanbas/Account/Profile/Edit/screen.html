@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Edit Profile Screen</title>
+  </head>
+  <body>
+    <table width="100%">
+      <tr>
+        <!-- Kanbas Navigation -->
+        <td width="20%" valign="top">
+          <ul>
+            <li><a href="/Kanbas/Account/Profile/screen.html">Account</a></li>
+            <li><a href="/Kanbas/Dashboard/screen.html">Dashboard</a></li>
+            <li><a href="/Kanbas/Courses/Home/screen.html">Courses</a></li>
+            <li><a href="/Kanbas/Calendar/index.html">Calendar</a></li>
+            <li><a href="/Kanbas/Inbox/index.html">Inbox</a></li>
+            <li><a href="/Kanbas/History/index.html">History</a></li>
+            <li><a href="/Kanbas/Studio/index.html">Studio</a></li>
+            <li><a href="/Kanbas/Commons/index.html">Commons</a></li>
+            <li><a href="/Kanbas/Help/index.html">Help</a></li>
+          </ul>
+        </td>
+
+        <!-- Account Navigation -->
+        <td width="20%" valign="top">
+          <ul>
+            <li><a href="#">Notifications</a></li>
+            <li><a href="/Kanbas/Account/Profile/screen.html">Profile</a></li>
+            <li><a href="#">Files</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">ePortfolios</a></li>
+            <li><a href="#">Shared Content</a></li>
+            <li><a href="#">The Hub</a></li>
+            <li><a href="#">Qwickly Course Tools</a></li>
+            <li><a href="#">Global Announcements</a></li>
+          </ul>
+        </td>
+
+        <!-- Edit profile -->
+        <td width="60%" valign="top">
+          <h1>Jose Annunziato</h1>
+
+          <form action="/Profile/screen.html" method="post">
+            <label for="name">Name:*</label>
+            <input type="text" id="name" value="Jose Annunziato" required />
+
+            <label for="pronouns">Pronouns:</label>
+            <select id="pronouns">
+              <option>None</option>
+              <!-- Additional pronoun options -->
+            </select>
+            <br />
+            <br />
+
+            <label for="title">Title:</label>
+            <input type="text" id="title" />
+
+            <h3>Contact</h3>
+            <p>
+              No registered services, you can add some on the
+              <a href="/settings">settings page</a>.
+            </p>
+
+            <h3>Biography</h3>
+            <p>
+              Faculty, Software Engineer, AI, Space, and renewables enthusiast.
+            </p>
+            <textarea rows="4" cols="45">
+Faculty, Software Engineer, AI, Space, and renewables enthusiast.</textarea
+            >
+
+            <h3>Links</h3>
+            <ul>
+              <li>
+                <a href="https://www.youtube.com" target="_blank"> YouTube </a>
+                <span style="color: blue">Links to an external site.</span>
+              </li>
+            </ul>
+
+            <table>
+              <tr>
+                <td align="center" valign="middle"><h3>Title</h3></td>
+                <td></td>
+                <td align="center" valign="middle"><h3>URL</h3></td>
+              </tr>
+              <tr>
+                <td><input type="text" value="YouTube" /></td>
+                <td>--></td>
+                <td>
+                  <input type="text" value="https://www.youtube.com" />
+                  <a href="#" target="_blank"> Remove </a>
+                </td>
+              </tr>
+              <!-- Additional links can be added here -->
+            </table>
+
+            <button
+              type="button"
+              onclick="window.location.href='/Profile/screen.html';"
+            >
+              Add another link
+            </button>
+
+            <div>
+              <button
+                type="button"
+                onclick="window.location.href='/Kanbas/Account/Profile/screen.html';"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onclick="window.location.href='/Kanbas/Account/Profile/screen.html';"
+              >
+                Save Profile
+              </button>
+            </div>
+          </form>
+
+          <div>
+            <button
+              type="button"
+              onclick="window.location.href='/Kanbas/Account/Profile/Edit/screen.html';"
+            >
+              Edit Profile
+            </button>
+            <button
+              type="button"
+              onclick="window.location.href='/Kanbas/Account/Profile/screen.html';"
+            >
+              Cancel Editting
+            </button>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
