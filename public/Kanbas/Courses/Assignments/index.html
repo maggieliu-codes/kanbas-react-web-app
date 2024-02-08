@@ -1,149 +1,130 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Assignments</title>
-  </head>
-  <body>
+<link href="/libs/bootstrap/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="/Kanbas/styles.css" />
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="/Kanbas/Courses/Navigation/index.css"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="/Kanbas/Courses/Assignments/index.css"
+/>
+<link
+  href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.css"
+  rel="stylesheet"
+/>
+<div class="d-flex justify-content-between align-items-center">
+  <input
+    type="text"
+    class="form-control w-25 search-input"
+    placeholder="Search for Assignment"
+  />
+  <div class="d-flex align-items-center">
+    <button class="btn btn-light">+ Group</button>
+    <button class="btn btn-danger">+ Assignment</button>
+    <button class="btn btn-light"><i class="fa fa-ellipsis-v"></i></button>
+  </div>
+</div>
+
+<hr />
+
+<ul class="list-group wd-modules">
+  <li class="list-group-item">
     <div>
-      <input type="search" placeholder="Search for Assignments" size="23" />
-      <button type="button">Group</button>
-      <button type="button">Assignment</button>
-      <select>
-        <option value="edit-dates">Edit Assignment Dates</option>
-        <!-- Additional dropdown options -->
-      </select>
+      <i class="fa fa-ellipsis-v"></i>
+      <i class="fa-solid fa-caret-down"></i> Assignments
+      <span class="float-end">
+        <div class="percentage-badge bg-light rounded-pill">40% of Total</div>
+        <i class="fa fa-plus ms-2"></i>
+        <i class="fa fa-ellipsis-v ms-2"></i>
+      </span>
     </div>
-    <hr />
-
-    <h3>
-      ASSIGNMENTS 40% of Total
-      <select>
-        <option>Edit</option>
-        <option>Speed Grader</option>
-        <option>Duplicate</option>
-        <option>Delete</option>
-        <option>Move To...</option>
-        <option>Send To...</option>
-        <option>Copy To...</option>
-        <option>Share to Commons</option>
-      </select>
-    </h3>
-    <ul>
-      <li>
-        <a href="/Kanbas/Courses/Assignments/Edit/screen.html"
-          >A1 - ENV + HTML</a
-        ><br /><a href="#">Multiple Modules</a> | Not available yet
+    <ul class="list-group assignments">
+      <li
+        class="list-group-item d-flex justify-content-start align-items-center assignment"
+      >
+        <i class="fa fa-ellipsis-v me-2"></i>
+        <i class="fa-regular fa-pen-to-square"></i>
+        <div class="flex-grow-1">
+          <div>A1 SETUP</div>
+          <div class="text-secondary small">
+            Week 0 - SETUP - Week starting on Monday September 5th
+          </div>
+        </div>
+        <i class="fa fa-check-circle text-success me-2"></i>
+        <i class="fa fa-ellipsis-v ms-2"></i>
       </li>
-      <li>
-        <a href="/Kanbas/Courses/Assignments/Edit/screen.html"
-          >A2 - CSS + BOOTSTRAP</a
-        ><br /><a href="#">Multiple Modules</a>
-        | Not available yet
+      <li
+        class="list-group-item d-flex justify-content-start align-items-center assignment"
+      >
+        <i class="fa fa-ellipsis-v me-2"></i>
+        <i class="fa-regular fa-pen-to-square"></i>
+        <div class="flex-grow-1">
+          <div>A2 HTML</div>
+          <div class="text-secondary small">
+            Week 1 - HTML - Week starting on Monday September 12th
+          </div>
+        </div>
+        <i class="fa fa-check-circle text-success me-2"></i>
+        <i class="fa fa-ellipsis-v ms-2"></i>
       </li>
-      <li>
-        <a href="/Kanbas/Courses/Assignments/Edit/screen.html"
-          >A3 - JS + REACT</a
-        ><br /><a href="#">Multiple Modules</a> | Not available yet
+      <li
+        class="list-group-item d-flex justify-content-start align-items-center assignment"
+      >
+        <i class="fa fa-ellipsis-v me-2"></i>
+        <i class="fa-regular fa-pen-to-square"></i>
+        <div class="flex-grow-1">
+          <div>A3 CSS</div>
+          <div class="text-secondary small">
+            Week 2 - CSS - Week starting on Monday September 19th
+          </div>
+        </div>
+        <i class="fa fa-check-circle text-success me-2"></i>
+        <i class="fa fa-ellipsis-v ms-2"></i>
       </li>
-      <li>
-        <a href="/Kanbas/Courses/Assignments/Edit/screen.html"
-          >A4 - STATE + REDUX</a
-        ><br /><a href="#">Multiple Modules</a>
-        | Not available yet
+      <li
+        class="list-group-item d-flex justify-content-start align-items-center assignment"
+      >
+        <i class="fa fa-ellipsis-v me-2"></i>
+        <i class="fa-regular fa-pen-to-square"></i>
+        <div class="flex-grow-1">
+          <div>A4 BOOTSTRAP</div>
+          <div class="text-secondary small">
+            Week 3 - Bootstrap - Week starting on Monday September 26th
+          </div>
+        </div>
+        <i class="fa fa-check-circle text-success me-2"></i>
+        <i class="fa fa-ellipsis-v ms-2"></i>
       </li>
-      <li>
-        <a href="/Kanbas/Courses/Assignments/Edit/screen.html"
-          >A5 - NODE + SESSION</a
-        ><br /><a href="#">Multiple Modules</a>
-        | Not available yet
+      <li
+        class="list-group-item d-flex justify-content-start align-items-center assignment"
+      >
+        <i class="fa fa-ellipsis-v me-2"></i>
+        <i class="fa-regular fa-pen-to-square"></i>
+        <div class="flex-grow-1">
+          <div>A5 JAVASCRIPT</div>
+          <div class="text-secondary small">
+            Week 4 - Javascript - Week starting on October September 3rd
+          </div>
+        </div>
+        <i class="fa fa-check-circle text-success me-2"></i>
+        <i class="fa fa-ellipsis-v ms-2"></i>
       </li>
-      <li>
-        <a href="/Kanbas/Courses/Assignments/Edit/screen.html"
-          >A6 - MONGO + MONGOOSE</a
-        ><br /><a href="#">Multiple Modules</a>
-        | Not available yet
-      </li>
-    </ul>
-
-    <h3>
-      QUIZZES 10% of Total
-      <select>
-        <option>Edit</option>
-        <option>Speed Grader</option>
-        <option>Duplicate</option>
-        <option>Delete</option>
-        <option>Move To...</option>
-        <option>Send To...</option>
-        <option>Copy To...</option>
-        <option>Share to Commons</option>
-      </select>
-    </h3>
-    <ul>
-      <li>
-        <a href="#">Q1 - HTML</a><br /><a href="#">Multiple Modules</a>
-        | Not available yet
-      </li>
-      <li>
-        <a href="#">Q2 - CSS</a><br /><a href="#">Multiple Modules</a>
-        | Not available yet
-      </li>
-      <li>
-        <a href="#">Q3 - JS, ES6</a><br /><a href="#">Multiple Modules</a>
-        | Not available yet
-      </li>
-      <li>
-        <a href="#">Q4 - NODE</a><br /><a href="#">Multiple Modules</a>
-        | Not available yet
-      </li>
-      <li>
-        <a href="#">Q5 - MONGO</a><br /><a href="#">Multiple Modules</a>
-        | Not available yet
-      </li>
-    </ul>
-
-    <h3>
-      EXAMS 20% of Total
-      <select>
-        <option>Edit</option>
-        <option>Speed Grader</option>
-        <option>Duplicate</option>
-        <option>Delete</option>
-        <option>Move To...</option>
-        <option>Send To...</option>
-        <option>Copy To...</option>
-        <option>Share to Commons</option>
-      </select>
-    </h3>
-    <ul>
-      <li>
-        <a href="#">Midterm</a><br /><a href="#">Multiple Modules</a>
-        | Not available yet
-      </li>
-      <li>
-        <a href="#">Final</a><br /><a href="#">Multiple Modules</a>
-        | Not available yet
+      <li
+        class="list-group-item d-flex justify-content-start align-items-center assignment"
+      >
+        <i class="fa fa-ellipsis-v me-2"></i>
+        <i class="fa-regular fa-pen-to-square"></i>
+        <div class="flex-grow-1">
+          <div>A6 REACT</div>
+          <div class="text-secondary small">
+            Week 5- React - Week starting on Monday October 10th
+          </div>
+        </div>
+        <i class="fa fa-check-circle text-success me-2"></i>
+        <i class="fa fa-ellipsis-v ms-2"></i>
       </li>
     </ul>
-
-    <h3>
-      PROJECT 30% of Total
-      <select>
-        <option>Edit</option>
-        <option>Speed Grader</option>
-        <option>Duplicate</option>
-        <option>Delete</option>
-        <option>Move To...</option>
-        <option>Send To...</option>
-        <option>Copy To...</option>
-        <option>Share to Commons</option>
-      </select>
-    </h3>
-    <ul>
-      <li>
-        <a href="#">Project</a><br /><a href="#">Multiple Modules</a>
-        | Not available yet
-      </li>
-    </ul>
-  </body>
-</html>
+  </li>
+</ul>
