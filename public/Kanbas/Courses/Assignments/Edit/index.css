@@ -1,0 +1,29 @@
+.final-grade-checkbox {
+    padding-left: 160px;
+}
+
+.add-row {
+    background-color: #e9ecef; /* Bootstrap's light grey */
+    padding: 10px 0; /* Add some padding */
+    text-align: center; /* Center the text */
+    margin-top: 15px; /* Add some margin on the top */
+  }
+
+  .form-section {
+    border: 1px solid #ced4da; /* Match Bootstrap's form input border color */
+    padding: 20px; /* Add some padding */
+    border-radius: 10px; /* Match Bootstrap's border radius */
+  }
+
+  .assign-box {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .a-name {
+    width: 100%;
+  }
+
+  .published {
+    color: green;
+  }

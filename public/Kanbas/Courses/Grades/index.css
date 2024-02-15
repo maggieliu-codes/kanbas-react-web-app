@@ -1,0 +1,11 @@
+.non-bold {
+    font-weight: normal;
+  }
+  
+  .table-input {
+    width: 100%;
+  }
+
+  .top-buttons {
+    margin-left: 10px;
+  }

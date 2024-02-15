@@ -1,0 +1,13 @@
+.navbar-custom {
+    background-color: #000; /* Black background */
+  }
+  .navbar-custom .navbar-toggler {
+    border: none; /* Remove border from toggler if present */
+  }
+  .navbar-custom .navbar-text {
+    color: #fff; /* White color for the toggler icon */
+    text-align: center;
+  }
+  .navbar-custom .nav-link {
+    color: #fff; /* White color for nav links */
+  }

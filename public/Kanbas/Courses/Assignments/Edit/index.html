@@ -1,91 +1,176 @@
-<div>
-  <select>
-    <option>SpeedGrader</option>
-    <!-- Additional options can be added here -->
-  </select>
-  <hr />
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="/libs/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/Kanbas/Courses/Assignments/Edit/index.css" />
+    <link rel="stylesheet" href="/Kanbas/styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <form>
+        <div class="d-flex justify-content-between align-items-center">
+          <div></div>
+          <div class="d-flex align-items-center">
+            <span class="published"
+              ><i class="fa-regular fa-square-check"></i> Published
+            </span>
+            <button class="btn btn-light">
+              <i class="fa fa-ellipsis-v"></i>
+            </button>
+          </div>
+        </div>
+        <hr />
+        <!-- Assignment Name -->
+        <div>Assignment Name</div>
+        <div class="form-group row">
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              id="assignmentName"
+              placeholder="A1 - ENV + HTML"
+            />
+          </div>
+        </div>
 
-  <h3>Assignment Name</h3>
-  <input type="text" value="A1 - ENV + HTML" />
-  <br />
-  <br />
+        <!-- Assignment Description -->
+        <div class="form-group row mt-3">
+          <div class="col-sm-12">
+            <textarea
+              class="form-control"
+              rows="4"
+              placeholder="This assignment describes how to install the development environment for creating and working with Web applications we will be developing this semester. We will add new content every week, pushing the code to a GitHub source repository, and then deploying the content to a remote server hosted on Netlify."
+            ></textarea>
+          </div>
+        </div>
 
-  <textarea id="assignment-description" rows="2" cols="25">
-This is the assignment description.</textarea
-  >
+        <!-- Points -->
+        <div class="form-group row mt-3">
+          <label for="points" class="col-sm-2 col-form-label text-end"
+            >Points</label
+          >
+          <div class="col-sm-10">
+            <input
+              type="number"
+              class="form-control"
+              id="points"
+              placeholder="100"
+            />
+          </div>
+        </div>
 
-  <br />
-  <br />
+        <!-- Assignment Group -->
+        <div class="form-group row mt-3">
+          <label for="assignmentGroup" class="col-sm-2 col-form-label text-end"
+            >Assignment Group</label
+          >
+          <div class="col-sm-10">
+            <select class="form-control" id="assignmentGroup">
+              <option>ASSIGNMENTS</option>
+              <!-- Other options here -->
+            </select>
+          </div>
+        </div>
 
-  <div>Points</div>
-  <input type="number" value="100" />
-  <br />
-  <br />
+        <!-- Display Grade as -->
+        <div class="form-group row mt-3">
+          <label for="displayGrade" class="col-sm-2 col-form-label text-end"
+            >Display Grade as</label
+          >
+          <div class="col-sm-10">
+            <select class="form-control" id="displayGrade">
+              <option>Percentage</option>
+              <!-- Other options here -->
+            </select>
+          </div>
+        </div>
 
-  <div>Assignment Group</div>
-  <select>
-    <option>ASSIGNMENTS</option>
-    <!-- Additional options can be added here -->
-  </select>
-  <br />
-  <br />
+        <!-- Checkbox Option -->
+        <div class="form-group row mt-3 final-grade-checkbox">
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="noCount" />
+              <label class="form-check-label" for="noCount">
+                Do not count this assignment towards the final grade
+              </label>
+            </div>
+          </div>
+        </div>
 
-  <div>Display Grade as</div>
-  <select>
-    <option>Percentage</option>
-    <!-- Additional options can be added here -->
-  </select>
-  <br />
-  <br />
+        <!-- Assign To -->
+        <div class="form-group row">
+          <div class="col-sm-2 col-form-label text-end">Assign</div>
+          <div class="col-sm-10 assign-box">
+            <div class="container mt-3 rounded-3">
+              <div class="form-section">
+                <div class="mb-3">
+                  <div class="text-muted">Assign to</div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Everyone"
+                  />
+                </div>
 
-  <div>Submission Type</div>
-  <select>
-    <option>Online</option>
-    <!-- Additional options can be added here -->
-  </select>
-  <br />
-  <br />
+                <div class="mb-3">
+                  <div class="text-muted">Due</div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Sep 18, 2023, 11:59 PM"
+                  />
+                </div>
 
-  <div>Online Entry Options</div>
-  <label><input type="checkbox" /> Text Entry</label><br />
-  <label><input type="checkbox" /> Website URL</label><br />
-  <label><input type="checkbox" /> Media Recordings</label><br />
-  <label><input type="checkbox" /> Student Annotation</label><br />
-  <label><input type="checkbox" /> File Uploads</label><br />
-  <br />
-  <br />
+                <div class="row mb-3">
+                  <div class="col-6">
+                    <div class="text-muted">Available from</div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Sep 6, 2023, 12:00 PM"
+                    />
+                  </div>
+                  <div class="col-6">
+                    <div class="text-muted">Until</div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Sep 18, 2023, 11:59 PM"
+                    />
+                  </div>
+                </div>
 
-  <div>Assign</div>
-  <label>Assign to</label>
-  <input type="text" value="Everyone" />
-  <br />
-  <br />
-
-  <div>Due</div>
-  <input type="date" value="2021-01-01" />
-  <br />
-  <br />
-
-  <div>Available from</div>
-  <input type="date" value="2021-01-01" />
-  <br />
-  <br />
-
-  <div>Until</div>
-  <input type="date" value="2021-01-01" />
-  <br />
-  <br />
-
-  <button
-    type="button"
-    onclick="location.href='/Kanbas/Courses/Assignments/screen.html'"
-  >
-    Cancel
-  </button>
-  <button
-    type="submit"
-    onclick="location.href='/Kanbas/Courses/Assignments/screen.html'"
-  >
-    Save
-  </button>
-</div>
+                <div class="add-row">+ Add</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="contentChange"
+            />
+            <label class="form-check-label" for="contentChange">
+              Notify users the content has changed.
+            </label>
+          </div>
+          <div class="d-flex align-items-center">
+            <button class="btn btn-light">Cancel</button>
+            <button class="btn btn-danger">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

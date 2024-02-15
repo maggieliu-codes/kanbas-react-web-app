@@ -1,0 +1,103 @@
+.wd-modules,
+.wd-modules * {
+  border-radius: 0%;
+  border: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.wd-modules {
+  margin: 5px;
+}
+
+.wd-modules > li {
+  background-color: lightgray;
+  border: 1px solid gray !important;
+  border-left: none !important;
+}
+
+.wd-modules > li > div {
+  padding: 6px;
+  border-left: 1px solid gray !important;
+}
+
+.wd-modules > li > ul > li {
+  padding: 5px;
+  border-top: 1px solid gray !important;
+  border-left: 2px solid green;
+}
+
+.wd-modules > li {
+  margin-bottom: 20px;
+}
+.outwards-link {
+    color: red; /* Sets the text color to red */
+    text-decoration: none; /* Removes the underline from the link */
+  }
+  
+  .search-input {
+    padding: 10px 20px; /* Padding inside the input */
+    font-size: 16px; /* Font size of the text */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  }
+
+  .fa-pen-to-square {
+    color: green;
+  }
+
+  .assignment {
+    position: relative;
+  }
+  
+  .assignment > .flex-grow-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 20px;
+  }
+  
+  .assignments {
+    width: 100%;
+  }
+
+  .assignment .text-secondary {
+    color: #6c757d;
+  }
+  
+  .assignment .small {
+    font-size: 0.875em;
+  }
+  
+  .assignment i {
+    font-size: 1.2em; /* Adjust icon size as needed */
+  }
+
+  .percentage-badge {
+    display: inline-block; /* Make the div inline */
+    padding: 0.25rem 0.75rem; /* Top and Bottom padding, Left and Right padding */
+    font-size: 0.875rem; /* Adjust the font size as needed */
+    border: 1px solid #ccc; /* Light grey border */
+  }
+
+  .breadcrumb {
+    margin-bottom: 0px;
+    margin-left: 10px;
+  }
+
+  .top-bar {
+    margin-left: 20px;
+  }
+
+  .breadcrumb-item a {
+    color: red; /* Set the text color to red */
+    text-decoration: none; /* Remove the underline */
+  }
+
+  .fa-grip-lines {
+    color: red;
+  }
+
+  a {
+    color: inherit; /* This makes the link the same color as the surrounding text */
+    text-decoration: none; /* This removes the underline */
+  }

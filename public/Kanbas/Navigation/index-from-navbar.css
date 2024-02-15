@@ -1,0 +1,35 @@
+.fa-circle-user {
+    color: gray;
+  }
+
+.wd-kanbas-navigation {
+    list-style: none;
+    padding: 0px;  margin: 0px;
+    height: 100%;
+    position: relative;
+    
+  }
+  .wd-kanbas-navigation li {
+    padding: 10px;     margin-bottom: 10px;
+    font-size: 0.8em;  
+  }
+
+  .wd-kanbas-navigation a {
+    color: red;
+    text-decoration: none;
+  }
+  .wd-kanbas-navigation a i {
+    color: red;
+    font-size: 2em;
+    margin-bottom: 5px;
+  }
+
+  .close-btn {
+    position: absolute; /* Position the link absolutely to the top-right corner */
+    top: 10px; /* Adjust the value as needed */
+    right: 10px; /* Adjust the value as needed */
+    font-size: 24px; /* Size of the 'x' icon */
+    color: gray; /* Color of the 'x' icon */
+    z-index: 1000; /* Ensure it's above other content */
+  }
+  
