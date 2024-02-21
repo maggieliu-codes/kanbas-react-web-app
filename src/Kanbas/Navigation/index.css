@@ -3,7 +3,7 @@
     list-style: none;
     padding: 0px;  margin: 0px;
     width: 80px;
-
+    height: 100%;
   }
   .wd-kanbas-navigation li {
     padding: 10px;     margin-bottom: 10px;
@@ -23,5 +23,11 @@
     color: red;
     font-size: 2em;
     margin-bottom: 5px;
+  }
+  .fs-2 {
+    color: red;
+  }
+  .user-icon {
+    color: grey;
   }
   

@@ -9,7 +9,23 @@ function ModuleList() {
   const [selectedModule, setSelectedModule] = useState(modulesList[0]);
   return (
     <>
-      {/* <!-- Add buttons here --> */}
+      <div className="d-flex align-items-center justify-content-end">
+  <button className="btn btn-light">Collapse All</button>
+  <button className="btn btn-light">View Progress</button>
+  <select
+  className="form-select"
+  style={{ width: '150px', marginLeft: '10px', marginRight: '10px' }}
+>
+  <option>✓ Publish All</option>
+  <option>Unpublish All</option>
+  <option>Archive All</option>
+</select>
+
+
+  <button className="btn btn-danger">+ Module</button>
+  <button className="btn btn-light"><FaEllipsisV className="me-2" /></button>
+</div>
+<hr/>
       <ul className="list-group wd-modules">
         {modulesList.map((module, index) => (
           <li key={index}

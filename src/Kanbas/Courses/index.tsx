@@ -4,6 +4,8 @@ import { HiMiniBars3 } from "react-icons/hi2";
 import { FaGlasses } from "react-icons/fa";
 import CourseNavigation from "./Navigation";
 import Modules from "./Modules ";
+import Home from "./Home";
+import Assignments from "./Assignments";
 import "./index.css";
 
 function Courses() {
@@ -14,8 +16,8 @@ function Courses() {
   const pathSegments = location.pathname.split('/').filter(segment => segment).slice(3);
 
   return (
-    <div>
-        <div className="d-flex justify-content-between align-items-center top-bar">
+    <div className="row">
+        <div className="d-flex justify-content-between align-items-center top-bar col">
         <HiMiniBars3 style={{ color: 'red' }} />
         <nav aria-label="breadcrumb" className="flex-grow-1 custom-breadcrumb">
           <ol className="breadcrumb">
@@ -36,21 +38,17 @@ function Courses() {
         </div>
       </div>
       <hr/>
-      <CourseNavigation />
-      <div>
-        <div
-          className="overflow-y-scroll position-fixed bottom-0 end-0"
-          style={{ left: "320px", top: "50px" }} >
+      <div className="col-md-3 col-lg-2 col-xl-2 col-xxl-2 d-none d-md-block"><CourseNavigation /></div>
+      <div className="col">
           <Routes>
             <Route path="/" element={<Navigate to="Home" />} />
-            <Route path="Home" element={<h1>Home</h1>} />
+            <Route path="Home" element={<Home/>} />
             <Route path="Modules" element={<Modules/>} />
             <Route path="Piazza" element={<h1>Piazza</h1>} />
-            <Route path="Assignments" element={<h1>Assignments</h1>} />
+            <Route path="Assignments" element={<Assignments/>} />
             <Route path="Assignments/:assignmentId" element={<h1>Assignment Editor</h1>} />
             <Route path="Grades" element={<h1>Grades</h1>} />
           </Routes>
-        </div>
       </div>
 
     </div>

@@ -7,7 +7,7 @@ import {
 
 function KanbasNavigation() {
   const links = [
-    { label: "Account",   icon: <FaUserCircle className="fs-2" /> },
+    { label: "Account",   icon: <FaUserCircle className="fs-2 user-icon" /> },
     { label: "Dashboard", icon: <FaTachometerAlt className="fs-2" /> },
     { label: "Courses",   icon: <FaBook className="fs-2" /> },
     { label: "Calendar",  icon: <FaCalendar className="fs-2" /> },
