@@ -49,7 +49,7 @@ function Status() {
 <hr />
 <ul className="list-group status-list-group">
   <li className="list-group-item">
-  <FaExclamationCircle />
+  <FaExclamationCircle style={{ color: 'red' }} />
     <a href="#!" className="grade-text"
       >&nbsp;&nbsp;&nbsp;&nbsp;Grade A1 - ENV + HTML</a>
     <FaXmark className="fa-xmark"/>
