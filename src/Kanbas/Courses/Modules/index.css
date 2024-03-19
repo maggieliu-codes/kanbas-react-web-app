@@ -6,6 +6,11 @@
   padding: 0px;
 }
 
+.wd-modules .btn {
+  border-radius: 4px !important; /* Or any other value you prefer, or 'initial' to reset */
+  margin-right: 4px;
+}
+
 .wd-modules {
   margin: 5px;
 }
@@ -35,3 +40,12 @@
 .btn-light {
 margin-left: 5px !important;
 }
+
+#no-top-margin {
+  margin-top: 0 !important;
+}
+
+#no-top-margin-2 {
+  margin-top: 0 !important;
+}
+
