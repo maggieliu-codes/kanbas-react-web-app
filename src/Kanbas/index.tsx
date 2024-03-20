@@ -15,6 +15,7 @@ function Kanbas() {
     number: "New Number",
     startDate: "2023-09-10",
     endDate: "2023-12-15",
+    image: "reactjs.jpg",
   });
   const addNewCourse = () => {
     setCourses([
