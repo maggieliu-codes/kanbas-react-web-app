@@ -1,0 +1,18 @@
+.custom-breadcrumb {
+    --bs-breadcrumb-divider: ">";
+    }
+
+    .breadcrumb {
+        margin-bottom: 0px;
+        margin-left: 10px;
+      }
+    
+      .top-bar {
+        margin-left: 20px;
+        font-size: 2rem; /* Example size, adjust as needed */
+      }
+    
+      .breadcrumb-item a {
+        color: red; /* Set the text color to red */
+        text-decoration: none; /* Remove the underline */
+      }
