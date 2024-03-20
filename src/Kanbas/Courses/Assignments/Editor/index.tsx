@@ -1,30 +1,62 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { assignments } from "../../../Database";
-import { FaEllipsisV} from "react-icons/fa";
+import { useSelector, useDispatch } from "react-redux";
+import { addAssignment, updateAssignment } from "../assignmentsReducer";
+import { FaEllipsisV } from "react-icons/fa";
+import { AssignmentState } from "../../../store";
 import "./index.css";
 function AssignmentEditor() {
-  const { assignmentId } = useParams();
-  const assignment = assignments.find(
-    (assignment) => assignment._id === assignmentId);
-  const { courseId } = useParams();
+  const { courseId, assignmentId } = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const isNewAssignment = assignmentId === "new";
+  const defaultAssignment = useSelector(
+    (state: AssignmentState) => state.assignmentsReducer.assignment
+  );
+  const assignments = useSelector(
+    (state: AssignmentState) => state.assignmentsReducer.assignments
+  );
+
+  const [localAssignment, setLocalAssignment] = useState({
+    ...defaultAssignment,
+    course: courseId,
+  });
+
+  useEffect(() => {
+    const assignmentToEdit = isNewAssignment
+      ? { ...defaultAssignment, course: courseId }
+      : assignments.find((a) => a._id === assignmentId);
+
+    if (assignmentToEdit) {
+      setLocalAssignment(assignmentToEdit);
+    }
+  }, [assignmentId, assignments, courseId, defaultAssignment, isNewAssignment]);
+
+  const handleInputChange = (e: { target: { name: any; value: any } }) => {
+    const { name, value } = e.target;
+    setLocalAssignment((prev: any) => ({ ...prev, [name]: value }));
+  };
+
   const handleSave = () => {
-    console.log("Actually saving assignment TBD in later assignments");
+    if (isNewAssignment) {
+      dispatch(addAssignment({ ...localAssignment, course: courseId }));
+    } else {
+      dispatch(updateAssignment({ ...localAssignment, _id: assignmentId }));
+    }
     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
   };
+
   return (
-    <div>
-      <div className="container mt-5">
+    <div className="container mt-5">
       <form>
         <div className="d-flex justify-content-between align-items-center">
           <div></div>
           <div className="d-flex align-items-center">
-            <span className="published"
-              ><i className="fa-regular fa-square-check"></i> Published
+            <span className="published">
+              <i className="fa-regular fa-square-check"></i> Published
             </span>
             <button className="btn btn-light">
-                <FaEllipsisV className="ms-2" />
+              <FaEllipsisV className="ms-2" />
             </button>
           </div>
         </div>
@@ -36,37 +68,49 @@ function AssignmentEditor() {
               type="text"
               className="form-control"
               id="assignmentName"
-              placeholder={assignment?.title}
+              name="title" // Ensure the name matches the property in your assignment object
+              value={localAssignment.title || ""}
+              onChange={handleInputChange}
             />
           </div>
         </div>
 
         <div className="form-group row mt-3">
           <div className="col-sm-12">
-          <textarea
-            className="form-control"
-            rows={4}
-            placeholder="This is assignment description placeholder."
+            <textarea
+              className="form-control"
+              rows={4}
+              name="description"
+              value={localAssignment.description || ""}
+              onChange={handleInputChange}
             />
           </div>
         </div>
 
         <div className="form-group row mt-3">
-        <label htmlFor="points" className="col-sm-2 col-form-label text-end">Points</label>
+          <label htmlFor="points" className="col-sm-2 col-form-label text-end">
+            Points
+          </label>
 
           <div className="col-sm-10">
             <input
               type="number"
               className="form-control"
               id="points"
-              placeholder="100"
+              name="points" // Added name attribute
+              value={localAssignment.points || ""}
+              onChange={handleInputChange}
             />
           </div>
         </div>
 
         <div className="form-group row mt-3">
-          <label htmlFor="assignmentGroup" className="col-sm-2 col-form-label text-end"
-            >Assignment Group</label>
+          <label
+            htmlFor="assignmentGroup"
+            className="col-sm-2 col-form-label text-end"
+          >
+            Assignment Group
+          </label>
           <div className="col-sm-10">
             <select className="form-control" id="assignmentGroup">
               <option>ASSIGNMENTS</option>
@@ -75,8 +119,12 @@ function AssignmentEditor() {
         </div>
 
         <div className="form-group row mt-3">
-          <label htmlFor="displayGrade" className="col-sm-2 col-form-label text-end"
-            >Display Grade as</label >
+          <label
+            htmlFor="displayGrade"
+            className="col-sm-2 col-form-label text-end"
+          >
+            Display Grade as
+          </label>
           <div className="col-sm-10">
             <select className="form-control" id="displayGrade">
               <option>Percentage</option>
@@ -87,7 +135,11 @@ function AssignmentEditor() {
         <div className="form-group row mt-3 final-grade-checkbox">
           <div className="col-sm-10">
             <div className="form-check">
-              <input className="form-check-input" type="checkbox" id="noCount" />
+              <input
+                className="form-check-input"
+                type="checkbox"
+                id="noCount"
+              />
               <label className="form-check-label" htmlFor="noCount">
                 Do not count this assignment towards the final grade
               </label>
@@ -112,9 +164,11 @@ function AssignmentEditor() {
                 <div className="mb-3">
                   <div className="text-muted">Due</div>
                   <input
-                    type="text"
+                    type="date"
                     className="form-control"
-                    placeholder="Sep 18, 2023, 11:59 PM"
+                    value={localAssignment.dueDate || ""}
+                    name="dueDate" // Added name attribute
+                    onChange={handleInputChange}
                   />
                 </div>
 
@@ -122,17 +176,21 @@ function AssignmentEditor() {
                   <div className="col-6">
                     <div className="text-muted">Available from</div>
                     <input
-                      type="text"
+                      type="date"
                       className="form-control"
-                      placeholder="Sep 6, 2023, 12:00 PM"
+                      value={localAssignment.availableFromDate || ""}
+                      name="availableFromDate" // Added name attribute
+                      onChange={handleInputChange}
                     />
                   </div>
                   <div className="col-6">
                     <div className="text-muted">Until</div>
                     <input
-                      type="text"
+                      type="date"
                       className="form-control"
-                      placeholder="Sep 18, 2023, 11:59 PM"
+                      value={localAssignment.availableUntilDate || ""}
+                      name="availableUntilDate" // Added name attribute
+                      onChange={handleInputChange}
                     />
                   </div>
                 </div>
@@ -155,13 +213,18 @@ function AssignmentEditor() {
             </label>
           </div>
           <div className="d-flex align-items-center">
-            <Link to={`/Kanbas/Courses/${courseId}/Assignments`}
- className="btn btn-light">Cancel</Link>
-            <button onClick={handleSave} className="btn btn-danger">Save</button>
+            <Link
+              to={`/Kanbas/Courses/${courseId}/Assignments`}
+              className="btn btn-light"
+            >
+              Cancel
+            </Link>
+            <button onClick={handleSave} className="btn btn-danger">
+              Save
+            </button>
           </div>
         </div>
       </form>
-    </div>
     </div>
   );
 }
