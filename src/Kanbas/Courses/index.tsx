@@ -7,6 +7,8 @@ import {
   useLocation,
   Link,
 } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { HiMiniBars3 } from "react-icons/hi2";
 import { FaGlasses } from "react-icons/fa";
 import CourseNavigation from "./Navigation";
@@ -17,10 +19,18 @@ import AssignmentEditor from "./Assignments/Editor";
 import Grades from "./Grades";
 import "./index.css";
 
-function Courses({ courses }: { courses: any[] }) {
+function Courses() {
   const { courseId } = useParams();
   const location = useLocation();
-  const course = courses.find((course) => course._id === courseId);
+  const COURSES_API = "http://localhost:4000/api/courses";
+  const [course, setCourse] = useState<any>({ _id: "" });
+  const findCourseById = async (courseId?: string) => {
+    const response = await axios.get(`${COURSES_API}/${courseId}`);
+    setCourse(response.data);
+  };
+  useEffect(() => {
+    findCourseById(courseId);
+  }, [courseId]);
 
   const pathSegments = location.pathname
     .split("/")

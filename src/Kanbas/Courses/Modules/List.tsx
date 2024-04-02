@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addModule, deleteModule, updateModule, setModule } from "./reducer";
+import {
+  addModule,
+  deleteModule,
+  updateModule,
+  setModule,
+  setModules,
+} from "./reducer";
 import { KanbasState } from "../../store";
 import "./index.css";
-import { modules } from "../../Database";
+import * as client from "./client";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle } from "react-icons/fa";
 import { useParams } from "react-router";
+import { modules } from "../../Database";
 function ModuleList() {
   interface Lesson {
     _id: string;
@@ -14,16 +21,55 @@ function ModuleList() {
     module: string;
   }
 
+  interface Module {
+    _id: string;
+    name: string;
+    description: string;
+    course: string;
+    lessons: Lesson[];
+  }
+
   const { courseId } = useParams();
+  useEffect(() => {
+    client
+      .findModulesForCourse(courseId || "")
+      .then((modules) => dispatch(setModules(modules)));
+  }, [courseId]);
+
   const modulesList = useSelector(
     (state: KanbasState) => state.modulesReducer.modules
   );
+
   const module = useSelector(
     (state: KanbasState) => state.modulesReducer.module
   );
   const dispatch = useDispatch();
 
-  const [selectedModule, setSelectedModule] = useState(modulesList[0]);
+  const [selectedModule, setSelectedModule] = useState<Module | null>(null);
+
+  useEffect(() => {
+    if (modulesList.length > 0) {
+      setSelectedModule(modulesList[0]); // Set selectedModule once modulesList is populated
+    }
+  }, [modulesList]); // Depend on modulesList to re-run this effect
+
+  const handleAddModule = () => {
+    client.createModule(courseId, module).then((module) => {
+      dispatch(addModule(module));
+    });
+  };
+
+  const handleDeleteModule = (moduleId: string) => {
+    client.deleteModule(moduleId).then((status) => {
+      dispatch(deleteModule(moduleId));
+    });
+  };
+
+  const handleUpdateModule = async () => {
+    const status = await client.updateModule(module);
+    dispatch(updateModule(module));
+  };
+
   return (
     <>
       <div className="d-flex align-items-center justify-content-end">
@@ -76,16 +122,14 @@ function ModuleList() {
             <button
               type="button"
               className="btn btn-primary"
-              onClick={() =>
-                dispatch(addModule({ ...module, course: courseId }))
-              }
+              onClick={handleAddModule}
             >
               Add
             </button>
             <button
               type="button"
               className="btn btn-secondary"
-              onClick={() => dispatch(updateModule(module))}
+              onClick={handleUpdateModule}
             >
               Update
             </button>
@@ -98,7 +142,11 @@ function ModuleList() {
             <li
               key={index}
               className="list-group-item"
-              onClick={() => dispatch(setModule(module))}
+              onClick={() => {
+                dispatch(setModule(module)); // Dispatch action to set module
+                setSelectedModule(module); // Set the clicked module as selectedModule
+                console.log(selectedModule);
+              }}
             >
               <div>
                 <FaEllipsisV className="me-2" />
@@ -107,7 +155,7 @@ function ModuleList() {
                   <button
                     type="button"
                     className="btn btn-danger"
-                    onClick={() => dispatch(deleteModule(module._id))}
+                    onClick={() => handleDeleteModule(module._id)}
                   >
                     Delete
                   </button>
@@ -126,7 +174,8 @@ function ModuleList() {
                   <FaEllipsisV className="ms-2" />
                 </span>
               </div>
-              {selectedModule._id === module._id && (
+
+              {selectedModule && selectedModule._id === module?._id && (
                 <ul className="list-group">
                   {module.lessons?.map((lesson: Lesson, index: number) => (
                     <li className="list-group-item" key={index}>

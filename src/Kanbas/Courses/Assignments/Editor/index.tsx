@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { addAssignment, updateAssignment } from "../assignmentsReducer";
+import * as client from "../client";
 import { FaEllipsisV } from "react-icons/fa";
 import { AssignmentState } from "../../../store";
 import "./index.css";
+import { create } from "domain";
 function AssignmentEditor() {
   const { courseId, assignmentId } = useParams();
   const navigate = useNavigate();
@@ -39,11 +41,18 @@ function AssignmentEditor() {
 
   const handleSave = () => {
     if (isNewAssignment) {
-      dispatch(addAssignment({ ...localAssignment, course: courseId }));
+      client.createAssignment(courseId, localAssignment).then((assignment) => {
+        dispatch(addAssignment(assignment));
+      });
     } else {
-      dispatch(updateAssignment({ ...localAssignment, _id: assignmentId }));
+      handleUpdateModule();
     }
     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
+  };
+
+  const handleUpdateModule = async () => {
+    const response = await client.updateAssignment(localAssignment);
+    dispatch(updateAssignment({ ...localAssignment, _id: assignmentId }));
   };
 
   return (

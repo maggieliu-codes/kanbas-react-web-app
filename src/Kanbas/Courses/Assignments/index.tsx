@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import {
+  addAssignment,
+  deleteAssignment,
+  updateAssignment,
+  setAssignment,
+  setAssignments,
+} from "../Assignments/assignmentsReducer";
+import * as client from "./client";
 import {
   FaCheckCircle,
   FaEllipsisV,
@@ -9,7 +17,6 @@ import {
   FaTrash,
 } from "react-icons/fa";
 import { AssignmentState } from "../../store";
-import { deleteAssignment } from "../Assignments/assignmentsReducer";
 import "./index.css";
 import { FaPenToSquare } from "react-icons/fa6";
 
@@ -17,14 +24,15 @@ function Assignments() {
   const { courseId } = useParams();
   const dispatch = useDispatch();
 
-  // Fetch the assignments from the Redux store
-  const assignments = useSelector(
-    (state: AssignmentState) => state.assignmentsReducer.assignments
-  );
+  useEffect(() => {
+    client
+      .findAssignmentsForCourse(courseId || "")
+      .then((assignments) => dispatch(setAssignments(assignments)));
+  }, [courseId]);
 
-  // Filter assignments for the current course
-  const assignmentList = assignments.filter(
-    (assignment) => assignment.course === courseId
+  // get the list of assignments
+  const assignmentList = useSelector(
+    (state: AssignmentState) => state.assignmentsReducer.assignments
   );
 
   const handleDelete = (assignmentId: any) => {
@@ -32,7 +40,9 @@ function Assignments() {
       "Are you sure you want to remove this assignment?"
     );
     if (isConfirmed) {
-      dispatch(deleteAssignment(assignmentId));
+      client.deleteAssignment(assignmentId).then(() => {
+        dispatch(deleteAssignment(assignmentId));
+      });
     }
   };
 
