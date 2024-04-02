@@ -18,7 +18,9 @@ function WorkingWithObjects() {
     course: "Web Development",
   });
 
-  const ASSIGNMENT_URL = "http://localhost:4000/a5/assignment";
+  const API_BASE = process.env.REACT_APP_API_BASE;
+
+  const ASSIGNMENT_URL = `${API_BASE}/a5/assignment`;
   const fetchAssignment = async () => {
     const response = await axios.get(`${ASSIGNMENT_URL}`);
     setAssignment(response.data);
@@ -33,7 +35,7 @@ function WorkingWithObjects() {
     fetchAssignment();
   }, []);
 
-  const MODULE_URL = "http://localhost:4000/a5/module";
+  const MODULE_URL = `${API_BASE}/a5/module`;
   return (
     <div>
       <h3>Working With Objects</h3>
@@ -121,17 +123,14 @@ function WorkingWithObjects() {
       </a>
 
       <h4>Retrieving Objects</h4>
-      <a className="btn btn-primary" href="http://localhost:4000/a5/assignment">
+      <a className="btn btn-primary" href={`${API_BASE}/a5/assignment`}>
         Get Assignment
       </a>
       <a className="btn btn-primary" href={MODULE_URL}>
         Get Module
       </a>
       <h4>Retrieving Properties</h4>
-      <a
-        className="btn btn-primary"
-        href="http://localhost:4000/a5/assignment/title"
-      >
+      <a className="btn btn-primary" href={`${API_BASE}/a5/assignment/title`}>
         Get Title
       </a>
       <a className="btn btn-primary" href={`${MODULE_URL}/name`}>
