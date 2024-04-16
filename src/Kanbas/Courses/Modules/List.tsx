@@ -54,7 +54,12 @@ function ModuleList() {
   }, [modulesList]); // Depend on modulesList to re-run this effect
 
   const handleAddModule = () => {
-    client.createModule(courseId, module).then((module) => {
+    const newModule = {
+      ...module, // Assuming 'module' contains the rest of the module data
+      _id: new Date().getTime().toString(),
+    };
+
+    client.createModule(courseId, newModule).then((module) => {
       dispatch(addModule(module));
     });
   };
